@@ -1,0 +1,16 @@
+{
+	"miniprogramRoot": "./dist",
+	"projectname": "league-game",
+	"description": "league-game",
+	"appid": "wx3f20339906918fa0",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true,
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"condition": {}
+}
