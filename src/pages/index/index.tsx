@@ -40,9 +40,9 @@ interface Index {
   props: IProps;
 }
 
-@connect(({ league }) => ({
-  league,
-}))
+// @connect(({ league }) => ({
+//   league,
+// }))
 class Index extends Component {
 
     /**

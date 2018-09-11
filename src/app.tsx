@@ -5,36 +5,34 @@ import { Provider } from '@tarojs/redux'
 import Index from './pages/index'
 
 // import configStore from './store'
+import { createLogger } from 'redux-logger'
 import dvaCore from './dvaCore'
 import models from './models'
 
 // import './app.styl'
 
 // const store = configStore()
-// console.log('models ===> ', models)
+// console.log('dvaCore ===> ', dvaCore)
 // debugger
 
-const app = dvaCore.createApp({
-  initialState: {},
-
+const app = dvaCore({
   models,
-
-  onError(e, dispatch) {
-    // dispatch(action("sys/error", e))
-    console.log('出错 ! ===> ', e)
-    console.log(dispatch)
-  },
+  onAction: createLogger(),
 })
 
 console.log('app ===> ', app)
+console.log('app._store ===> ', app._store)
+console.log('app.getStore ===> ', app.getStore)
 
-debugger
+// debugger
 
-const store = app.getStore()
+// const store = app.getStore()
+const store = app._store
+
 
 console.log('store ===> ', store)
 
-debugger
+// debugger
 
 class App extends Component {
 
