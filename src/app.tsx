@@ -14,10 +14,15 @@ import Index from './pages/index'
 // taro-dva
 const dva = dvaCore.createApp({
   initialState: {},
+
   models: models,
-  // onError(e, dispatch) {
-  //   dispatch(action("sys/error", e));
-  // },
+
+  onAction: createLogger(),
+
+  onError(e, dispatch) {
+    // dispatch(action("sys/error", e));
+    console.log('发生错误 ===> ', e)
+  },
 })
 const store = dva.getStore()
 
@@ -28,7 +33,7 @@ const store = dva.getStore()
 // })
 // const store = app._store
 
-console.log('app ===> ', app)
+console.log('app ===> ', dva)
 // console.log('app._store ===> ', app._store)
 // console.log('app.getStore ===> ', app.getStore())
 

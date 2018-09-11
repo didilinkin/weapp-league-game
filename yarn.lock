@@ -91,7 +91,7 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
-"@tarojs/async-await@^1.0.0-beta.26":
+"@tarojs/async-await@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/async-await/-/async-await-1.0.0-beta.26.tgz#8253197d65eb20c288b07d9db9c112a74c43a862"
   dependencies:
@@ -137,7 +137,7 @@
     vinyl "^2.1.0"
     vinyl-fs "^3.0.2"
 
-"@tarojs/components@^1.0.0-beta.26":
+"@tarojs/components@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/components/-/components-1.0.0-beta.26.tgz#0e2fe856f0f495137a2366e11acb63d5d20fcb64"
   dependencies:
@@ -159,6 +159,12 @@
   dependencies:
     csso "^3.5.0"
 
+"@tarojs/plugin-sass@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/@tarojs/plugin-sass/-/plugin-sass-1.0.0-beta.26.tgz#bf66904fde696bb68992b83edcd67fd2b0725ee2"
+  dependencies:
+    node-sass "^4.8.3"
+
 "@tarojs/plugin-stylus@^1.0.0-beta.26":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/plugin-stylus/-/plugin-stylus-1.0.0-beta.26.tgz#3decdfaed53f74b36d620578bd60482e45cf686b"
@@ -177,7 +183,7 @@
   dependencies:
     uglify-js "^3.3.24"
 
-"@tarojs/redux-h5@^1.0.0-beta.26":
+"@tarojs/redux-h5@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/redux-h5/-/redux-h5-1.0.0-beta.26.tgz#13fcab663fd2de7eda7a8b520b13bfed9cb560a9"
   dependencies:
@@ -188,19 +194,19 @@
     prop-types "^15.6.1"
     redux "^4.0.0"
 
-"@tarojs/redux@^1.0.0-beta.26":
+"@tarojs/redux@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/redux/-/redux-1.0.0-beta.26.tgz#a284e762812a9108e8443a55ec4e416dc9415609"
   dependencies:
     "@tarojs/utils" "1.0.0-beta.26"
 
-"@tarojs/router@^1.0.0-beta.26":
+"@tarojs/router@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/router/-/router-1.0.0-beta.26.tgz#d98151bfddfada7f206fbec55b74926688a1d255"
   dependencies:
     "@tarojs/taro-h5" "1.0.0-beta.26"
 
-"@tarojs/taro-h5@1.0.0-beta.26", "@tarojs/taro-h5@^1.0.0-beta.26":
+"@tarojs/taro-h5@1.0.0-beta.26", "@tarojs/taro-h5@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/taro-h5/-/taro-h5-1.0.0-beta.26.tgz#087df0cc0db5986ad6788b44155c9a3b25e8b23a"
   dependencies:
@@ -209,7 +215,7 @@
     mobile-detect "^1.4.2"
     whatwg-fetch "^2.0.4"
 
-"@tarojs/taro-weapp@^1.0.0-beta.26":
+"@tarojs/taro-weapp@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-1.0.0-beta.26.tgz#84ec664621c1953c1f8053b439c1e038388630ca"
   dependencies:
@@ -218,7 +224,7 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
-"@tarojs/taro@1.0.0-beta.26", "@tarojs/taro@^1.0.0-beta.26":
+"@tarojs/taro@1.0.0-beta.26", "@tarojs/taro@^1.0.0-beta.25":
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-1.0.0-beta.26.tgz#b3e19a4a2662323a5a849fce89aed1ffb3d5dd26"
 
@@ -937,7 +943,7 @@ babel-plugin-transform-class-properties@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-plugin-transform-decorators-legacy@^1.3.4, babel-plugin-transform-decorators-legacy@^1.3.5:
+babel-plugin-transform-decorators-legacy@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-decorators-legacy/-/babel-plugin-transform-decorators-legacy-1.3.5.tgz#0e492dffa0edd70529072887f8aa86d4dd8b40a1"
   dependencies:
@@ -1155,6 +1161,12 @@ babel-plugin-transform-regenerator@^6.22.0:
   dependencies:
     regenerator-transform "^0.10.0"
 
+babel-plugin-transform-runtime@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
+  dependencies:
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-strict-mode@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.24.1.tgz#d5faf7aa578a65bbe591cf5edae04a0c67020758"
@@ -1162,7 +1174,7 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-preset-env@^1.6.1, babel-preset-env@^1.7.0:
+babel-preset-env@^1.6.1:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.7.0.tgz#dea79fa4ebeb883cd35dab07e260c1c9c04df77a"
   dependencies:
@@ -1196,6 +1208,10 @@ babel-preset-env@^1.6.1, babel-preset-env@^1.7.0:
     browserslist "^3.2.6"
     invariant "^2.2.2"
     semver "^5.3.0"
+
+babel-regenerator-runtime@^6.5.0:
+  version "6.5.0"
+  resolved "http://registry.npmjs.org/babel-regenerator-runtime/-/babel-regenerator-runtime-6.5.0.tgz#0e41cd1c9f80442466f015c749fff8ba98f8e110"
 
 babel-register@^6.26.0:
   version "6.26.0"
@@ -2468,7 +2484,7 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-eslint-config-taro@^1.0.0-beta.11:
+eslint-config-taro@^1.0.0-beta.25:
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/eslint-config-taro/-/eslint-config-taro-1.0.0-beta.26.tgz#5927d4bb49884683266ab29f3d24a50cc63d8c3c"
   dependencies:
@@ -2513,7 +2529,7 @@ eslint-plugin-react@^7.8.2:
     jsx-ast-utils "^2.0.1"
     prop-types "^15.6.2"
 
-eslint-plugin-taro@1.0.0-beta.26, eslint-plugin-taro@^1.0.0-beta.11:
+eslint-plugin-taro@1.0.0-beta.26, eslint-plugin-taro@^1.0.0-beta.25:
   version "1.0.0-beta.26"
   resolved "https://registry.yarnpkg.com/eslint-plugin-taro/-/eslint-plugin-taro-1.0.0-beta.26.tgz#0866b0db72f57e6f6fabb31fec78e3905e8ba986"
   dependencies:
@@ -3559,7 +3575,7 @@ into-stream@^3.1.0:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
 
-invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
+invariant@^2.0.0, invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -4112,7 +4128,7 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.2.1:
+lodash-es@^4.17.5, lodash-es@^4.2.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
@@ -4601,7 +4617,7 @@ nerv-utils@1.3.2-beta.0:
   version "1.3.2-beta.0"
   resolved "https://registry.yarnpkg.com/nerv-utils/-/nerv-utils-1.3.2-beta.0.tgz#ff776bfacaf058c8f8732adecb993db64ed14378"
 
-nervjs@^1.3.0, nervjs@^1.3.3:
+nervjs@^1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/nervjs/-/nervjs-1.3.3.tgz#b9cf361452c8af9b781a2673532cebb33364e23b"
   dependencies:
@@ -5476,6 +5492,17 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-redux@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    invariant "^2.0.0"
+    lodash "^4.17.5"
+    lodash-es "^4.17.5"
+    loose-envify "^1.1.0"
+    prop-types "^15.6.0"
+
 react@16.3.0:
   version "16.3.0"
   resolved "http://registry.npmjs.org/react/-/react-16.3.0.tgz#fc5a01c68f91e9b38e92cf83f7b795ebdca8ddff"
@@ -5571,10 +5598,6 @@ redux-saga@^0.16.0:
 redux-thunk@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
-
-redux@3.0:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-3.0.6.tgz#f02db603a8996776f68ef38f571c25705c9ba325"
 
 redux@^3.7.1:
   version "3.7.2"

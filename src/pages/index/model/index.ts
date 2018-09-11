@@ -12,7 +12,7 @@ export default {
   },
 
   effects: {
-    * getList({ payload }, { call, put }) {
+    * getScheduleList({ payload }, { call, put }) {
       let { data } = yield call(request, {
         method: 'get',
         url: 'https://dataservice-sec.vpgame.com/dota2/pro/webservice/schedule/list/all',
