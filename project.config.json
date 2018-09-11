@@ -9,8 +9,9 @@
 		"postcss": false,
 		"minified": false,
 		"newFeature": true,
-		"nodeModules": false
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
+	"libVersion": "2.2.5",
 	"condition": {}
 }

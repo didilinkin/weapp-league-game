@@ -2,33 +2,35 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import '@tarojs/async-await'
 import { Provider } from '@tarojs/redux'
 
-import Index from './pages/index'
-
 // import configStore from './store'
-import { createLogger } from 'redux-logger'
 import dvaCore from './dvaCore'
+import { createLogger } from 'redux-logger'
 import models from './models'
+
+import Index from './pages/index'
 
 // import './app.styl'
 
-// const store = configStore()
-// console.log('dvaCore ===> ', dvaCore)
-// debugger
-
-const app = dvaCore({
-  models,
-  onAction: createLogger(),
+// taro-dva
+const dva = dvaCore.createApp({
+  initialState: {},
+  models: models,
+  // onError(e, dispatch) {
+  //   dispatch(action("sys/error", e));
+  // },
 })
+const store = dva.getStore()
+
+// ME
+// const app = dvaCore({
+//   models,
+//   onAction: createLogger(),
+// })
+// const store = app._store
 
 console.log('app ===> ', app)
-console.log('app._store ===> ', app._store)
-console.log('app.getStore ===> ', app.getStore)
-
-// debugger
-
-// const store = app.getStore()
-const store = app._store
-
+// console.log('app._store ===> ', app._store)
+// console.log('app.getStore ===> ', app.getStore())
 
 console.log('store ===> ', store)
 
