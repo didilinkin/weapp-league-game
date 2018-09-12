@@ -2,18 +2,13 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import '@tarojs/async-await'
 import { Provider } from '@tarojs/redux'
 
-// import configStore from './store'
 import dvaCore from './dvaCore'
 import { createLogger } from 'redux-logger'
 import models from './models'
 
-import Index from './pages/index'
 import League from './pages/league'
 import News from './pages/news'
 
-// import './app.styl'
-
-// taro-dva
 const dva = dvaCore.createApp({
   initialState: {},
 
@@ -28,13 +23,6 @@ const dva = dvaCore.createApp({
 })
 const store = dva.getStore()
 
-// ME
-// const app = dvaCore({
-//   models,
-//   onAction: createLogger(),
-// })
-// const store = app._store
-
 class App extends Component {
 
   /**
@@ -46,7 +34,6 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index',
       'pages/league/index',
       'pages/news/index',
     ],
@@ -62,12 +49,6 @@ class App extends Component {
       backgroundColor: '#FBFBFB',
       borderStyle: 'white',
       list: [
-        {
-          pagePath: 'pages/index/index',
-          text: '首页',
-          iconPath: './assets/count.png',
-          selectedIconPath: './assets/count.png',
-        },
         {
           pagePath: 'pages/league/index',
           text: '赛程',
@@ -95,7 +76,6 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Index />
         <League />
         <News />
       </Provider>
