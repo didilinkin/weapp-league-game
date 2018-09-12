@@ -36,38 +36,3 @@ export default {
     return app.dispatch;
   }
 }
-
-
-// Me
-// import createLoading from 'dva-loading'
-// const { create } = require('dva-core')
-
-// console.log('create', create)
-
-// const dvaCore = (options: any) => {
-//   const createOpts = {
-//     setupMiddlewares(middlewares: any) {
-//       return [
-//         ...middlewares,
-//       ]
-//     },
-//   }
-
-//   const dvaCore = create(options, createOpts)
-
-//   options.models.forEach(function (model: any): any {
-//     return dvaCore.model(model)
-//   })
-
-//   dvaCore.start()
-
-//   const store = dvaCore._store
-
-//   dvaCore.getStore = () => store
-
-//   // dvaCore.use(createLoading())
-
-//   return dvaCore
-// }
-
-// export default dvaCore

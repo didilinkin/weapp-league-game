@@ -1,11 +1,19 @@
+/*
+ * @Author: yanxiaodi 929213769@qq.com
+ * @Date: 2018-09-12 11:08:03
+ * @LastEditors: yanxiaodi 929213769@qq.com
+ * @LastEditTime: 2018-09-12 12:02:17
+ * @Description: model - league
+ */
 import Taro from '@tarojs/taro'
 
 import request from '../../../utils/request'
+import { DvaApi } from '../../../utils/typeConf'
 
 const SET_LIST = 'SET_LIST'
 
 export default {
-  namespace: 'index',
+  namespace: 'league',
 
   state: {
     list: [],

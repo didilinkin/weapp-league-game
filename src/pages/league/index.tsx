@@ -1,10 +1,17 @@
+/*
+ * @Author: yanxiaodi 929213769@qq.com
+ * @Date: 2018-09-12 10:59:05
+ * @LastEditors: yanxiaodi 929213769@qq.com
+ * @LastEditTime: 2018-09-12 11:05:40
+ * @Description: league 赛程表
+ */
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
+import _ from 'lodash'
 
 type PageStateProps = {
-  league: any,
   dispatch: Function,
 }
 
@@ -18,30 +25,15 @@ type PageState = {}
 
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
-interface Index {
+interface League {
   props: IProps;
 }
 
 @connect(
-  state => ({
-    league: state.league,
-  }),
-  dispatch => ({
-    getScheduleList() {
-      dispatch({
-        type: 'league/getScheduleList',
-        payload: {
-          lang: 'cn',
-          interval: 7,
-          status: this.status || 'wait',
-          game_type: this.gameType || 'csgo',
-          start_date: Date.parse(`${new Date()}`),
-        },
-      })
-    },
-  }),
+  state => ({}),
+  dispatch => ({}),
 )
-class Index extends Component {
+class League extends Component {
   config: Config = {
     navigationBarTitleText: '赛程',
     enablePullDownRefresh: true,
@@ -49,7 +41,7 @@ class Index extends Component {
   };
 
   componentDidMount = () => {
-    this.props.getScheduleList()
+    // this.props.getScheduleList()
   }
 
   render() {
@@ -57,10 +49,10 @@ class Index extends Component {
 
     return (
       <View>
-        赛程
+        赛程 League
       </View>
     )
   }
 }
 
-export default Index as ComponentClass<PageOwnProps, PageState>
+export default League as ComponentClass<PageOwnProps, PageState>

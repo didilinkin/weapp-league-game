@@ -8,6 +8,8 @@ import { createLogger } from 'redux-logger'
 import models from './models'
 
 import Index from './pages/index'
+import League from './pages/league'
+import News from './pages/news'
 
 // import './app.styl'
 
@@ -33,14 +35,6 @@ const store = dva.getStore()
 // })
 // const store = app._store
 
-console.log('app ===> ', dva)
-// console.log('app._store ===> ', app._store)
-// console.log('app.getStore ===> ', app.getStore())
-
-console.log('store ===> ', store)
-
-// debugger
-
 class App extends Component {
 
   /**
@@ -52,13 +46,41 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/league/index',
+      'pages/news/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'black',
+    },
+    tabBar: {
+      color: '#626567',
+      selectedColor: '#2A8CE5',
+      backgroundColor: '#FBFBFB',
+      borderStyle: 'white',
+      list: [
+        {
+          pagePath: 'pages/index/index',
+          text: '首页',
+          iconPath: './assets/count.png',
+          selectedIconPath: './assets/count.png',
+        },
+        {
+          pagePath: 'pages/league/index',
+          text: '赛程',
+          iconPath: './assets/league.png',
+          selectedIconPath: './assets/league.png',
+        },
+        {
+          pagePath: 'pages/news/index',
+          text: '资讯',
+          iconPath: './assets/news.png',
+          selectedIconPath: './assets/news.png',
+        },
+      ]
     }
   }
 
@@ -74,6 +96,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Index />
+        <League />
+        <News />
       </Provider>
     )
   }
