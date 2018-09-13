@@ -1,0 +1,41 @@
+.flexCenter
+  display: flex
+  align-items: center
+  justify-content: center
+
+.leagueList
+  // 通用样式
+  .text
+    font-size: 24px
+
+  .leagueList--ul
+    .leagueList--li
+      @extend .flexCenter
+      margin: 28px 0
+      padding: 28px 0
+      background-color: #fff
+      .match--date
+        flex: 2
+        @extend .flexCenter
+        padding: 0 20px
+        .league--time
+          display: block
+          font-size: 24px
+
+      .match--info
+        flex: 12
+        @extend .flexCenter
+        .match--team
+          flex: 4.5
+          text-align: center
+        .match--state
+          flex: 2
+          text-align: center
+
+      .match--status
+        flex: 2
+        @extend .flexCenter
+        padding: 0 20px
+        .status--title
+          font-size: 24px
+

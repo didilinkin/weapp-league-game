@@ -2,20 +2,18 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 18:12:21
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-12 21:41:56
+ * @LastEditTime: 2018-09-13 18:24:16
  * @Description: 赛程列表
  */
 import { ComponentClass } from 'react'
 import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { is, fromJS } from 'immutable'
-import _ from 'lodash'
-const dayjs = require('dayjs')
+import { View, Text } from '@tarojs/components'
 
-import { AtList, AtListItem } from 'taro-ui'
-import { List } from 'antd-mobile' // View
+import TeamInfo from './TeamInfo'
 
-import mapToArray from '../../../utils/mapToArray'
+import './LeagueList.styl'
+
+const _ = require('lodash')
 
 type PageStateProps = {
   list: any,
@@ -35,12 +33,9 @@ interface LeagueList {
   props: IProps;
 }
 
-const Item = List.Item
-const Brief = Item.Brief
-
 class LeagueList extends Component {
   static defaultProps = { // 判空 不渲染
-    list: fromJS([]),
+    list: [],
   }
 
   state = {
@@ -58,24 +53,69 @@ class LeagueList extends Component {
   render () {
     console.log('LeagueList props ===> ', this.props.list)
 
-    const Element = this.props.list.map((item, key) => (
-      <AtListItem
-        key={key}
-        title={dayjs(item.match_time).format('YYYY-MM-DD')}
-        note={item.status}
-      />
-    ))
-
     return (
-      <View>
-        {/* {this.props.list.map((item, key) => (
-          <AtListItem
-            key={key}
-            title={dayjs(item.match_time * 1000).format('YYYY-MM-DD')}
-            note={item.status}
-          />
-        ))} */}
-        {Element}
+      <View className="leagueList">
+        <View className="leagueList--ul">
+          {this.props.list.map(item =>
+            <View className="leagueList--li" key={item.key}>
+              {/* 比赛 日期 */}
+              <View className="match--date">
+                <Text className="league--time"> {item.time} </Text>
+              </View>
+
+              {/* 比赛 队伍 */}
+              <View className="match--info">
+                <View className="match--team">
+                  <TeamInfo
+                    left={true}
+                    abbr={_.get(item, 'team1.abbr')}
+                    logo={_.get(item, 'team1.logo')}
+                  />
+                </View>
+
+                <View className="match--state">
+                  {item.status === 'wait'
+                    ? <Text className="text"> VS </Text>
+                    : (
+                      <View>
+                        <Text className="text"> {_.get(item, 'team1.score' || 0)} </Text>
+                        <Text className="text"> {` - `} </Text>
+                        <Text className="text"> {_.get(item, 'team2.score' || 0)} </Text>
+                      </View>
+                    )
+                  }
+                </View>
+
+                <View className="match--team">
+                  <TeamInfo
+                    left={false}
+                    abbr={_.get(item, 'team2.abbr')}
+                    logo={_.get(item, 'team2.logo')}
+                  />
+                </View>
+              </View>
+
+              {/* 比赛 状态 */}
+              <View className="match--status">
+                <Text
+                  className="status--title"
+                  style={{
+                    color: item.status === 'wait'
+                      ? 'gray'
+                      : item.status === 'start'
+                        ? 'green'
+                        : 'blue'}}
+                >
+                  {item.status === 'wait'
+                    ? '未进行'
+                    : item.status === 'start'
+                      ? '进行中'
+                      : '已结束'}
+                </Text>
+              </View>
+            </View>
+          )}
+        </View>
       </View>
     )
   }

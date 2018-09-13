@@ -11,7 +11,7 @@ import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
 import LeagueList from './components/LeagueList'
-import mapToArray from '../../utils/mapToArray'
+import './index.styl'
 
 const _ = require('lodash')
 const dayjs = require('dayjs') // import dayjs from 'dayjs' // 不能用？ 不知为何...
@@ -77,14 +77,24 @@ class League extends Component {
     console.log('this.props ==> ', this.props)
     console.log('props.schedule => toJS() ===> ', this.props.schedule.toJS())
 
+    const scheduleList = this.props.schedule.toJS().map((item, key) => _.assign(item, {
+      key,
+      list: item.list.map((subItem, subKey) =>
+        _.assign(
+          {},
+          subItem,
+          {
+            subKey,
+            time: dayjs(subItem.match_time * 1000).format('HH:mm'),
+          },
+        ))
+    }))
     return (
-      <View>
-        <View>赛程 League</View>
-
-        {mapToArray(this.props.schedule).map((item, key) => (
-          <View key={key}>
-            <View> {dayjs(item.get('date') * 1000).format('YYYY-MM-DD')} </View>
-            <LeagueList list={item.get('list').toJS()} />
+      <View className="league">
+        {scheduleList.map(item => (
+          <View key={item.key}>
+            <View> {dayjs(item.date * 1000).format('YYYY-MM-DD')} </View>
+            <LeagueList list={item.list} />
           </View>
         ))}
       </View>
