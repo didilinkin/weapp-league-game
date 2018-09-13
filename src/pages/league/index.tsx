@@ -2,19 +2,26 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 10:59:05
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-12 16:59:23
+ * @LastEditTime: 2018-09-12 21:24:29
  * @Description: league 赛程表
  */
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import _ from 'lodash'
+
+import LeagueList from './components/LeagueList'
+import mapToArray from '../../utils/mapToArray'
+
+const _ = require('lodash')
+const dayjs = require('dayjs') // import dayjs from 'dayjs' // 不能用？ 不知为何...
 
 type PageStateProps = {
-  // schedule: Array<any>,
   league: any,
   gameType: string,
+  status: string,
+  lang: string,
+  schedule: any,
   dispatch: Function,
 }
 
@@ -34,8 +41,11 @@ interface League {
 
 @connect(
   state => ({
-    league: state.league,
+    league: state.league, // 用于开发 预览数据, 无其他作用
     gameType: state.league.get('gameType'),
+    status: state.league.get('status'),
+    lang: 'cn', // state.league.get('lang'),
+    schedule: state.league.get('schedule'),
   }),
   dispatch => ({
     getScheduleList() {
@@ -65,11 +75,18 @@ class League extends Component {
 
   render() {
     console.log('this.props ==> ', this.props)
-    console.log('props => toJS() ===> ', this.props.league.toJS())
+    console.log('props.schedule => toJS() ===> ', this.props.schedule.toJS())
 
     return (
       <View>
-        赛程 League
+        <View>赛程 League</View>
+
+        {mapToArray(this.props.schedule).map((item, key) => (
+          <View key={key}>
+            <View> {dayjs(item.get('date') * 1000).format('YYYY-MM-DD')} </View>
+            <LeagueList list={item.get('list').toJS()} />
+          </View>
+        ))}
       </View>
     )
   }

@@ -18,7 +18,7 @@ const dva = dvaCore.createApp({
 
   onError(e, dispatch) {
     // dispatch(action("sys/error", e));
-    console.log('发生错误 ===> ', e)
+    console.log('发生错误 ===> ', e, dispatch)
   },
 })
 const store = dva.getStore()

@@ -2,7 +2,7 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 11:08:03
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-12 17:41:43
+ * @LastEditTime: 2018-09-12 18:09:20
  * @Description: model - league
  */
 import Taro from '@tarojs/taro'
@@ -33,7 +33,6 @@ interface SetSchedulePayload {
 
 const SET_SCHEDULE_LIST = 'SET_SCHEDULE_LIST'
 
-// immutable
 const initState = fromJS({
   gameType: 'csgo',
   status: 'wait',
@@ -43,14 +42,6 @@ const initState = fromJS({
 export default {
   namespace: 'league',
 
-  // state: {
-  //   gameType: 'csgo',
-  //   status: 'wait',
-  //   schedule: [{
-  //     date: 0,
-  //     list: [],
-  //   }],
-  // },
   state: initState,
 
   effects: {
