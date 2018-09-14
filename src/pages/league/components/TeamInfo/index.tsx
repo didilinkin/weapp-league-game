@@ -10,6 +10,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import singleEllipsis from '../../../../utils/singleEllipsis'
+import './index.styl'
 
 type PageStateProps = {}
 type PageDispatchProps = {}

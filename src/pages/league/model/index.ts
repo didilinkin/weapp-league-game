@@ -12,6 +12,8 @@ import * as leagueServices from '../../../services/league'
 import { DvaApi } from '../../../utils/typeConf'
 import checkResStatus from '../../../utils/checkResStatus'
 
+const pick = require('lodash/pick')
+
 interface GetSchedulePayload {
   payload: {
     game_type: 'csgo' | 'dota' | 'lol' | 'ow',
@@ -19,6 +21,9 @@ interface GetSchedulePayload {
     lang: 'cn' | 'en' | 'ru',
     interval: number,
     start_date: number,
+    // 页面状态: 因无 () => event() 方法, 会造成页面多次渲染
+    leftIconShow: boolean,
+    rightIconShow: boolean,
   },
 }
 
@@ -32,11 +37,14 @@ interface SetSchedulePayload {
 }
 
 const SET_SCHEDULE_LIST = 'SET_SCHEDULE_LIST'
+const SET_DRAWER = 'SET_DRAWER'
 
 const initState = fromJS({
   gameType: 'csgo',
   status: 'wait',
   schedule: [],
+  leftIconShow: false,
+  rightIconShow: false,
 })
 
 export default {
@@ -67,20 +75,33 @@ export default {
         yield put({
           type: SET_SCHEDULE_LIST,
           payload: {
-            schedule: schedule,
+            ...pick(payload, ['status']),
+            gameType: payload.game_type,
+            schedule,
           },
         })
 
         Taro.hideLoading()
       }
     },
+
+    * changeDrawer({ payload }: any, { put }: DvaApi) {
+      yield put({
+        type: SET_DRAWER,
+        payload,
+      })
+    }
   },
 
   reducers: {
-    SET_SCHEDULE_LIST(state: any, { payload }: SetSchedulePayload) {
-      // return { ...state, ...payload }
+    SET_SCHEDULE_LIST(state: any, { payload }: any) {
       return state
-        .set('schedule', fromJS(payload.schedule))
+        .merge(fromJS(payload))
+    },
+
+    SET_DRAWER(state: any, { payload }: any) {
+      return state
+        .merge(payload)
     },
   },
 }
