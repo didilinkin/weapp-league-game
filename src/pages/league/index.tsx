@@ -112,7 +112,7 @@ class League extends Component {
     backgroundTextStyle: "dark",
   }
 
-  // componentWillReceiveProps (nextProps: any): void {}
+  componentWillReceiveProps (nextProps: any): void {}
 
   componentDidMount = () => {}
 
