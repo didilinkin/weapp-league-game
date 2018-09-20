@@ -9,11 +9,11 @@ import { ComponentClass } from 'react'
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
-import TeamInfo from './TeamInfo'
+import TeamInfo from '../TeamInfo'
 
 import './LeagueList.styl'
 
-const _ = require('lodash')
+const get = require('lodash/get')
 
 type PageStateProps = {
   list: any,
@@ -30,7 +30,7 @@ type PageState = {}
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
 interface LeagueList {
-  props: IProps;
+  props: IProps,
 }
 
 class LeagueList extends Component {
@@ -42,16 +42,8 @@ class LeagueList extends Component {
     schedule: [],
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (!is(this.state.schedule, nextProps.schedule)) {
-  //     this.setState({
-  //       schedule: nextProps.schedule,
-  //     })
-  //   }
-  // }
-
   render () {
-    console.log('LeagueList props ===> ', this.props.list)
+    // console.log('LeagueList props ===> ', this.props.list)
 
     return (
       <View className="leagueList">
@@ -68,8 +60,8 @@ class LeagueList extends Component {
                 <View className="match--team">
                   <TeamInfo
                     left={true}
-                    abbr={_.get(item, 'team1.abbr')}
-                    logo={_.get(item, 'team1.logo')}
+                    abbr={get(item, 'team1.abbr')}
+                    logo={get(item, 'team1.logo')}
                   />
                 </View>
 
@@ -78,9 +70,9 @@ class LeagueList extends Component {
                     ? <Text className="text"> VS </Text>
                     : (
                       <View>
-                        <Text className="text"> {_.get(item, 'team1.score' || 0)} </Text>
+                        <Text className="text"> {get(item, 'team1.score' || 0)} </Text>
                         <Text className="text"> {` - `} </Text>
-                        <Text className="text"> {_.get(item, 'team2.score' || 0)} </Text>
+                        <Text className="text"> {get(item, 'team2.score' || 0)} </Text>
                       </View>
                     )
                   }
@@ -89,8 +81,8 @@ class LeagueList extends Component {
                 <View className="match--team">
                   <TeamInfo
                     left={false}
-                    abbr={_.get(item, 'team2.abbr')}
-                    logo={_.get(item, 'team2.logo')}
+                    abbr={get(item, 'team2.abbr')}
+                    logo={get(item, 'team2.logo')}
                   />
                 </View>
               </View>

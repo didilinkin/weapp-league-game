@@ -3,7 +3,6 @@ import '@tarojs/async-await'
 import { Provider } from '@tarojs/redux'
 
 import dvaCore from './dvaCore'
-import { createLogger } from 'redux-logger'
 import models from './models'
 
 import League from './pages/league'
@@ -14,7 +13,7 @@ const dva = dvaCore.createApp({
 
   models: models,
 
-  onAction: createLogger(),
+  // onAction: createLogger(),
 
   onError(e, dispatch) {
     // dispatch(action("sys/error", e));
