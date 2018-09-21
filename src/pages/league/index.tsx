@@ -46,7 +46,7 @@ type PageState = {
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
 interface League {
-  props: IProps;
+  props: IProps
 }
 
 @connect(
@@ -117,17 +117,11 @@ class League extends Component {
   componentDidMount = () => {}
 
   shouldComponentUpdate(nextProps: any, nextState: any): boolean { // 当 loading 发生改变 就要再次渲染
-    // console.log('nextProps ===> ', nextProps)
-    // console.log('nextState ===> ', nextState)
-    // console.log('检查是否需要 更新')
-
     if (
       !is(nextProps.schedule, fromJS(nextState.schedule)) ||
       nextState.leftIconShow === true ||
       nextState.rightIconShow === true
     ) { // 不相同的 list => 更新 state
-      console.log('不相同的 list => 更新 state')
-
       this.setState({
         schedule: nextProps.schedule.toJS(),
       })
@@ -181,8 +175,6 @@ class League extends Component {
         gameType = 'csgo'
     }
 
-    console.log('切换 gameType ===> ', gameType)
-
     // 改变类型, 发起请求
     this.props.getScheduleList({
       game_type: gameType || 'csgo',
@@ -217,19 +209,19 @@ class League extends Component {
           color='#000'
           title={toUpper(this.props.gameType)}
           fixed={true}
-          leftIconType='user'
+          // leftIconType='user'
           rightFirstIconType='bullet-list'
           onClickLeftIcon={this.handleClickLeftIcon}
           onClickRgIconSt={this.handleClickRightIcon}
         />
 
         {/* 赛程列表 */}
-        {scheduleList.map(item => (
+        {scheduleList.map(item =>
           <View key={item.key}>
             <View> {dayjs(item.date * 1000).format('YYYY-MM-DD')} </View>
             <LeagueList list={item.list} />
           </View>
-        ))}
+        )}
 
         {/* 右侧 抽屉 - gameType */}
         <AtDrawer

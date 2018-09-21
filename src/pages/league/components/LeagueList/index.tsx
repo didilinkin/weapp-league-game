@@ -9,9 +9,9 @@ import { ComponentClass } from 'react'
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
-import TeamInfo from './TeamInfo'
+import TeamInfo from '../TeamInfo'
 
-import './LeagueList.styl'
+import './index.styl'
 
 const _ = require('lodash')
 

@@ -57,7 +57,7 @@ class App extends Component {
         },
         {
           pagePath: 'pages/news/index',
-          text: '资讯',
+          text: '电竞',
           iconPath: './assets/news.png',
           selectedIconPath: './assets/news.png',
         },

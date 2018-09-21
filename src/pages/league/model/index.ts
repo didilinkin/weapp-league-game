@@ -94,7 +94,7 @@ export default {
   },
 
   reducers: {
-    SET_SCHEDULE_LIST(state: any, { payload }: any) {
+    SET_SCHEDULE_LIST(state: any, { payload }: SetSchedulePayload) {
       return state
         .merge(fromJS(payload))
     },
