@@ -53,6 +53,7 @@ class TeamInfo extends Component {
               <Image
                 src={this.props.logo}
                 className="teamInfo--logo"
+                lazy-load={true}
               />
             </View>
           )

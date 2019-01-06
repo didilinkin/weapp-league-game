@@ -129,7 +129,7 @@ class News extends Component {
         <View className="newsList">
           {newsList.map((item, key) =>
             <View key={key} className="news--item">
-              <Image src={item.poster} className="news--poster" mode='aspectFill' />
+              <Image src={item.poster} className="news--poster" mode='aspectFill' lazy-load={true} />
               <View className="news--content">
                 <Text className="news--title"> {item.title} </Text>
 
