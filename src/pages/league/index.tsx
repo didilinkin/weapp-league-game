@@ -2,7 +2,7 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 10:59:05
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-14 01:14:34
+ * @LastEditTime: 2019-01-08 12:42:40
  * @Description: league 赛程表
  */
 import { ComponentClass } from 'react'
@@ -17,7 +17,7 @@ import './index.styl'
 
 const _ = require('lodash')
 const toUpper = require('lodash/toUpper')
-const dayjs = require('dayjs') // import dayjs from 'dayjs' // 不能用？ 不知为何...
+const dayjs = require('dayjs')
 
 type PageStateProps = {
   league: any,
@@ -54,7 +54,7 @@ interface League {
     league: state.league, // 用于开发 预览数据, 无其他作用
     gameType: state.league.get('gameType'),
     status: state.league.get('status'),
-    lang: 'cn', // state.league.get('lang'),
+    lang: 'cn',
     schedule: state.league.get('schedule'),
     leftIconShow: state.league.get('leftIconShow'),
     rightIconShow: state.league.get('rightIconShow'),
@@ -125,19 +125,15 @@ class League extends Component {
       this.setState({
         schedule: nextProps.schedule.toJS(),
       })
-
       return true
-    } else if ( // 用： this.state 而不是用 nextState
+    } else if (
       this.state.rightIconShow === false &&
       this.state.leftIconShow === false
     ) {
       console.log('列表相同 + 抽屉 状态无改变 => 不渲染')
       return false
-    } else {
-      return true
     }
-
-    return false
+    return true
   }
 
   // 自定义事件
@@ -147,12 +143,10 @@ class League extends Component {
 
   handleClickRightIcon = (): void => {
     this.setState({ rightIconShow: true })
-    // this.props.changeDrawer({ rightIconShow: true })
   }
 
   handleRightDrawer = (): void => {
     this.setState({ rightIconShow: false })
-    // this.props.changeDrawer({ rightIconShow: false })
   }
 
   drawerClick = (index: number): void => {
@@ -186,9 +180,6 @@ class League extends Component {
   }
 
   render() {
-    console.log('this.props ==> ', this.props)
-    console.log('props.schedule => toJS() ===> ', this.props.schedule.toJS())
-
     const scheduleList = !!this.props.schedule && this.props.schedule.toJS().map((item, key) => _.assign(item, {
       key,
       list: _.isArray(item.list) && item.list.map((subItem, subKey) =>
@@ -209,7 +200,6 @@ class League extends Component {
           color='#000'
           title={toUpper(this.props.gameType)}
           fixed={true}
-          // leftIconType='user'
           rightFirstIconType='bullet-list'
           onClickLeftIcon={this.handleClickLeftIcon}
           onClickRgIconSt={this.handleClickRightIcon}

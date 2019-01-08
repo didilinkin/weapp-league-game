@@ -2,21 +2,19 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 10:59:48
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-12 11:06:48
+ * @LastEditTime: 2019-01-08 12:38:33
  * @Description: news 资讯数据
  */
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { AtNavBar, AtDrawer, AtIcon } from 'taro-ui'
+import { AtNavBar, AtIcon } from 'taro-ui'
 import './index.styl'
-
-const get = require('lodash/get')
 
 type GetNewsPayload = {
   game_type: number,
-  AcceptLanguage: string, // Accept-Language
+  AcceptLanguage: string,
   data_key: number,
   limit?: number | 15,
   search?: string,
@@ -28,7 +26,7 @@ type PageStateProps = {
 }
 
 type PageDispatchProps = {
-  getNewsList: (payload: GetNewsPayload) => void // GetNewsPayload
+  getNewsList: (payload: GetNewsPayload) => void
 }
 
 type PageOwnProps = {}
@@ -71,8 +69,6 @@ class News extends Component {
   }
 
   render() {
-    console.log('this.props ==> ', this.props)
-
     const newsList = [
       {
         author: '几页',
@@ -119,10 +115,6 @@ class News extends Component {
           color='#000'
           title={'CSGO'}
           fixed={true}
-          // leftIconType='user'
-          // rightFirstIconType='bullet-list'
-          // onClickLeftIcon={this.handleClickLeftIcon}
-          // onClickRgIconSt={this.handleClickRightIcon}
         />
 
         {/* 资讯内容 */}
@@ -132,24 +124,20 @@ class News extends Component {
               <Image src={item.poster} className="news--poster" mode='aspectFill' lazy-load={true} />
               <View className="news--content">
                 <Text className="news--title"> {item.title} </Text>
-
                 <View style={{ display: 'flex' }}>
                   <View className="news--author">
                     <AtIcon value='user' size='16' color='#767676' />
                     <Text className="news--small"> {item.author} </Text>
                   </View>
-
                   <View className="news--comment">
                     <AtIcon value='message' size='16' color='#767676' />
                     <Text className="news--small"> {item.comment} </Text>
                   </View>
-
                   <View className="news--view">
                     <AtIcon value='eye' size='16' color='#767676' />
                     <Text className="news--small"> {item.view} </Text>
                   </View>
                 </View>
-
                 <Text className="news--description"> {item.description} </Text>
               </View>
             </View>

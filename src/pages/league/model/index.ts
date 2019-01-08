@@ -2,7 +2,7 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 11:08:03
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-12 18:09:20
+ * @LastEditTime: 2019-01-08 12:40:23
  * @Description: model - league
  */
 import Taro from '@tarojs/taro'
@@ -21,7 +21,6 @@ interface GetSchedulePayload {
     lang: 'cn' | 'en' | 'ru',
     interval: number,
     start_date: number,
-    // 页面状态: 因无 () => event() 方法, 会造成页面多次渲染
     leftIconShow: boolean,
     rightIconShow: boolean,
   },
@@ -56,16 +55,13 @@ export default {
     * getScheduleList({ payload }: GetSchedulePayload, { call, put }: DvaApi) {
       Taro.showLoading({ title: 'Loading...' })
       let schedule = []
-
       try {
         const res = yield call(leagueServices.getScheduleList, payload)
-
         if (checkResStatus(res.status)) {
           schedule = res.data
         }
       } catch (e) {
         console.log('请求错误 ===> ', e)
-
         Taro.showToast({
           title: '请求失败',
           icon: 'loading',
@@ -80,7 +76,6 @@ export default {
             schedule,
           },
         })
-
         Taro.hideLoading()
       }
     },

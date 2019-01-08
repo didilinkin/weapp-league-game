@@ -2,7 +2,7 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-13 17:41:10
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-13 19:59:23
+ * @LastEditTime: 2019-01-08 12:39:48
  * @Description: Team info
  */
 import { ComponentClass } from 'react'
@@ -49,7 +49,6 @@ class TeamInfo extends Component {
                   {singleEllipsis(this.props.abbr, 6)}
                 </Text>
               </View>
-
               <Image
                 src={this.props.logo}
                 className="teamInfo--logo"
@@ -66,7 +65,6 @@ class TeamInfo extends Component {
                 src={this.props.logo}
                 className="teamInfo--logo"
               />
-
               <View className="teamInfo__flex">
                 <Text className="text">
                   {singleEllipsis(this.props.abbr, 6)}

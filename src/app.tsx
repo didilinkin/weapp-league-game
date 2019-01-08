@@ -11,20 +11,15 @@ import News from './pages/news'
 
 const dva = dvaCore.createApp({
   initialState: {},
-
   models: models,
-
   onAction: createLogger(),
-
   onError(e, dispatch) {
-    // dispatch(action("sys/error", e));
     console.log('发生错误 ===> ', e, dispatch)
   },
 })
 const store = dva.getStore()
 
 class App extends Component {
-
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -66,11 +61,8 @@ class App extends Component {
   }
 
   componentDidMount () {}
-
   componentDidShow () {}
-
   componentDidHide () {}
-
   componentCatchError () {}
 
   render () {

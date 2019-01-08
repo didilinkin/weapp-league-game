@@ -2,7 +2,7 @@
  * @Author: yanxiaodi 929213769@qq.com
  * @Date: 2018-09-12 18:12:21
  * @LastEditors: yanxiaodi 929213769@qq.com
- * @LastEditTime: 2018-09-13 18:24:16
+ * @LastEditTime: 2019-01-08 12:39:16
  * @Description: 赛程列表
  */
 import { ComponentClass } from 'react'
@@ -34,7 +34,7 @@ interface LeagueList {
 }
 
 class LeagueList extends Component {
-  static defaultProps = { // 判空 不渲染
+  static defaultProps = {
     list: [],
   }
 
@@ -42,17 +42,7 @@ class LeagueList extends Component {
     schedule: [],
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (!is(this.state.schedule, nextProps.schedule)) {
-  //     this.setState({
-  //       schedule: nextProps.schedule,
-  //     })
-  //   }
-  // }
-
   render () {
-    console.log('LeagueList props ===> ', this.props.list)
-
     return (
       <View className="leagueList">
         <View className="leagueList--ul">
@@ -62,7 +52,6 @@ class LeagueList extends Component {
               <View className="match--date">
                 <Text className="league--time"> {item.time} </Text>
               </View>
-
               {/* 比赛 队伍 */}
               <View className="match--info">
                 <View className="match--team">
@@ -72,7 +61,6 @@ class LeagueList extends Component {
                     logo={_.get(item, 'team1.logo')}
                   />
                 </View>
-
                 <View className="match--state">
                   {item.status === 'wait'
                     ? <Text className="text"> VS </Text>
@@ -85,7 +73,6 @@ class LeagueList extends Component {
                     )
                   }
                 </View>
-
                 <View className="match--team">
                   <TeamInfo
                     left={false}
@@ -94,7 +81,6 @@ class LeagueList extends Component {
                   />
                 </View>
               </View>
-
               {/* 比赛 状态 */}
               <View className="match--status">
                 <Text
